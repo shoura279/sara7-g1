@@ -4,7 +4,7 @@ export const getMessages = async (req, res, next) => {
     console.log(req.session);
 
     if (req.session.isLoggedIn) {
-        let url = `http://localhost:3000/user/${req.session.userId}`
+        let url = `${req.protocol}://${req.headers.host}/user/${req.session.userId}`
         let qrCode = await QRCode.toDataURL(url)
         // console.log(qrCode);
         const messages = await Message.find({ user: req.session.userId })

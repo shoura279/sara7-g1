@@ -7,7 +7,7 @@ import mongoSession from 'connect-mongodb-session'
 import userRouter from './src/modules/user/user.router.js'
 const MongoDBStore = mongoSession(session)
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 connectDB()
 const store = new MongoDBStore({
     uri: "mongodb+srv://ahmedshoura279:Fng8sFkAmRq47XJC@cluster0.ti4194e.mongodb.net/sara7a-g1",

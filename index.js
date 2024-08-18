@@ -1,9 +1,9 @@
+import mongoSession from 'connect-mongodb-session'
 import express from 'express'
 import session from 'express-session'
 import { connectDB } from './db/connect.js'
 import authRouter from './src/modules/auth/auth.router.js'
 import messageRouter from './src/modules/messages/message.router.js'
-import mongoSession from 'connect-mongodb-session'
 import userRouter from './src/modules/user/user.router.js'
 const MongoDBStore = mongoSession(session)
 const app = express()
@@ -13,6 +13,7 @@ const store = new MongoDBStore({
     uri: "mongodb+srv://ahmedshoura279:Fng8sFkAmRq47XJC@cluster0.ti4194e.mongodb.net/sara7a-g1",
     collection: 'mySessions'
 })
+app.use(cors())
 app.use(session({
     secret: 'hambozo',
     resave: false,

@@ -6,3 +6,5 @@ export const connectDB = () => {
         console.log('fail to connect to db');
     })
 }
+connectDB()
+connectDB()
